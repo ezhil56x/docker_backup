@@ -2,7 +2,7 @@
 
 clear
 
-backup_dir="$HOME/.backups"
+backup_dir="/home/ezhil/docker_volume_backups"
 
 if [ ! -d "$backup_dir" ]; then
     mkdir -p "$backup_dir"

@@ -65,8 +65,8 @@ if [ "$action" == "1" ]; then
     fi
 
     backup_file="$backup_dir/${volume}.tar.gz"
-    uid=$(id -u ${SUDO_USER})
-    gid=$(id -g ${SUDO_USER})
+    uid=$(id -u)
+    gid=$(id -g)
     docker run --rm -v $volume:/volume -v $backup_dir:/backup --user $uid:$gid ubuntu bash -c "cd /volume && tar czf /backup/${volume}.tar.gz ."
 
     if [ ! -z "$container_id" ]; then
@@ -136,8 +136,8 @@ elif [ "$action" == "3" ]; then
         fi
 
         backup_file="$backup_dir/${volume}.tar.gz"
-        uid=$(id -u ${SUDO_USER})
-        gid=$(id -g ${SUDO_USER})
+        uid=$(id -u)
+        gid=$(id -g)
         docker run --rm -v $volume:/volume -v $backup_dir:/backup --user $uid:$gid ubuntu bash -c "cd /volume && tar czf /backup/${volume}.tar.gz ."
 
         if [ ! -z "$container_id" ]; then
